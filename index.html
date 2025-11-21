@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: #58a6ff;
+        }
+
+        header p {
+            opacity: 0.8;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #58a6ff;
+            padding-left: 10px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: #161b22;
+            padding: 20px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        ul {
+            margin: 10px 0 0 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #21262d;
+            margin-top: 60px;
+            color: #8b949e;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #21262d;
+            border-radius: 5px;
+            margin: 3px;
+            font-size: 0.9rem;
+            border: 1px solid #30363d;
+        }
+        
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #c9d1d9;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #58a6ff;
+            flex: 0 0 18px;
+        }
+
+        .contact-logo {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            flex: 0 0 18px;
+        }
+
+        .contact-item a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .contact-item a:hover { text-decoration: underline; }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag svg {
+            width: 16px;
+            height: 16px;
+            fill: #58a6ff;
+            flex: 0 0 16px;
+        }
+
+        .contact-logo {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Mattéo BEGUE</h1>
+    <p>Étudiant en BUT Informatique | Développeur Junior</p>
+    <p>Limoges - Recherche stage avril 2026</p>
+</header>
+
+<div class="container">
+
+    <h2>// Profil</h2>
+    <div class="card">
+        <p>
+        Je suis Mattéo, étudiant en 2ᵉ année de BUT Informatique à l’IUT du Limousin.  
+        Passionné par le développement, les systèmes et l’admin réseau, j’aime comprendre en profondeur 
+        comment les services numériques fonctionnent et créer des outils fiables et utiles.
+        </p>
+        <p>
+        Objectif : <strong>stage de 8–12 semaines dès le 6 avril 2026</strong>  
+        </p>
+    </div>
+
+    <h2>// C1 — Développer des applications</h2>
+    <div class="card">
+        <strong>Projet : Latice (Java / JavaFX) — 2 mois</strong>
+        <ul>
+            <li>Développement de l’interface graphique</li>
+            <li>Gestion des événements utilisateur</li>
+            <li>Travail en équipe (4 pers.) + Git</li>
+        </ul>
+        <p>Compétences : POO, JavaFX, MVC, Git</p>
+    </div>
+
+    <h2>// C2 — Optimiser</h2>
+    <div class="card">
+        <p>Amélioration de performances Java, correction de bugs, optimisation scripts Python.</p>
+    </div>
+
+    <h2>// C3 — Administrer systèmes & réseaux</h2>
+    <div class="card">
+        <strong>Projet : Infrastructure Réseau Kathara — 2 mois</strong>
+        <ul>
+            <li>Configuration IPv4</li>
+            <li>Services DHCP, DNS, SSH</li>
+            <li>Tests et diagnostics (Wireshark)</li>
+        </ul>
+    </div>
+
+    <h2>// C4 — Gérer des données</h2>
+    <div class="card">
+        <p>
+        MCD/MLD, requêtes SQL avancées, MySQL & MariaDB, gestion utilisateurs, intégration PHP.
+        </p>
+    </div>
+
+    <h2>// C5 — Conduite de projet</h2>
+    <div class="card">
+        <strong>Projet : Formulaire numérique (en cours)</strong>
+        <ul>
+            <li>3 mois — équipe de 5</li>
+            <li>Organisation Agile</li>
+            <li>Développement front + Git</li>
+        </ul>
+    </div>
+
+    <h2>// C6 — Collaboration</h2>
+    <div class="card">
+        <p>Git avancé, résolution de conflits, communication claire, travail en équipe.</p>
+    </div>
+
+    <h2>// Compétences techniques</h2>
+    <div class="skills-grid">
+        <div class="card">Langages<br><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span></div>
+        <div class="card">Web<br><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">PHP</span></div>
+        <div class="card">BDD<br><span class="tag">MySQL</span><span class="tag">MariaDB</span></div>
+        <div class="card">Sys<br><span class="tag">Linux</span><span class="tag">Windows</span></div>
+        <div class="card">Réseau<br><span class="tag">IPv4/6</span><span class="tag">DHCP</span><span class="tag">DNS</span><span class="tag">SSH</span></div>
+        <div class="card">Sécurité<br><span class="tag">AES</span><span class="tag">RSA</span><span class="tag">HTTPS</span></div>
+        <div class="card">Scripting<br><span class="tag">Bash</span></div>
+        <div class="card">Outils<br><span class="tag">Git</span><span class="tag">Wireshark</span></div>
+    </div>
+
+    <h2>// Soft Skills</h2>
+    <div class="card">
+        Curieux, Discipliné, Esprit d'équipe, Rigueur, Communication, Créatif, Motivé, Organisé, Adaptatif
+    </div>
+
+    <h2>// Contact</h2>
+    <div class="card contact-list">
+        <p class="contact-item">
+            <img src="icons8-address-32.png" alt="GitHub" class="contact-logo">>
+            Limoges
+        </p>
+        <p class="contact-item">
+            <img src="icons8-phone-32.png" alt="GitHub" class="contact-logo">
+            06 92 62 48 77
+        </p>
+        <p class="contact-item">
+            <img src="icons8-mail-32.png" alt="GitHub" class="contact-logo">
+            <a href="mailto:matteo.begue@etu.unilim.fr">matteo.begue@etu.unilim.fr</a>
+        </p>
+        <p class="contact-item">
+            <img src="icons8-github-32.png" alt="GitHub" class="contact-logo">
+            <a href="https://github.com/M-begue" target="_blank">M-begue</a>
+        </p>
+        <p class="contact-item">
+            <img src="icons8-linkedin-32.png" alt="LinkedIn" class="contact-logo">
+            <a href="https://www.linkedin.com/in/mattéo-begue-921a7b384" target="_blank">Mattéo BEGUE</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    © 2025 — Portfolio développé par Mattéo Begue
+</footer>
+
+</body>
+</html>
