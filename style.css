@@ -137,3 +137,14 @@ a:hover {
     vertical-align: middle;
     margin-right: 8px;
 }
+
+.card a.project-link {
+    color: inherit; 
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card a.project-link:hover {
+    text-decoration: underline;
+}
