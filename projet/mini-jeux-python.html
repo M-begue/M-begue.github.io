@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-jeux Python - Mattéo Begue</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <p><a href="../index.html">← Retour au Portfolio</a></p>
+    <h1>Collection de Mini-jeux Python</h1>
+    <p>Morpion, Devinette et Allumettes</p>
+</header>
+
+<div class="container">
+
+    <div class="project-section">
+        <h2>Morpion (Tic-Tac-Toe)</h2>
+        <div class="card">
+            <h3>Description et objectifs</h3>
+            <p>Ce jeu en ligne de commande a été développé pour tester ma capacité à gérer des structures de données complexes (le tableau 3x3) et à implémenter des algorithmes de vérification de victoire efficaces. Le jeu est entièrement jouable à deux joueurs dans le terminal.</p>
+            <ul>
+                <li>Implémentation de la logique de jeu en Python.</li>
+                <li>Gestion des tours des joueurs et des entrées invalides.</li>
+                <li>Fonction de vérification des huit conditions de victoire possibles (3 lignes, 3 colonnes, 2 diagonales).</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Aperçu Visuel</h3>
+            <img src="../images/morpion.png" alt="Capture d'écran du jeu du morpion dans le terminal" class="project-image">
+            <p style="opacity: 0.8; font-size: 0.9em;">Capture : Vue du plateau dans le terminal après quelques coups.</p>
+        </div>
+    </div>
+
+
+    <div class="project-section">
+        <h2>Jeu de la Devinette (Number Guessing Game)</h2>
+        <div class="card">
+            <h3>Description et objectifs</h3>
+            <p>Ce projet simple visait à maîtriser les boucles (<code>while</code>) et les structures conditionnelles (<code>if/elif/else</code>). Le joueur doit deviner un nombre aléatoire choisi par l'ordinateur dans une fourchette donnée, avec des indications après chaque tentative ("Trop grand", "Trop petit").</p>
+            <ul>
+                <li>Utilisation de la bibliothèque <code>random</code>.</li>
+                <li>Gestion des tentatives et du feedback utilisateur.</li>
+                <li>Comptage du nombre d'essais pour évaluer la performance.</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Concept</h3>
+            <p>La logique repose sur la comparaison constante du nombre deviné avec le nombre secret, utilisant des conditions pour guider l'utilisateur. J'ai également mis en place la gestion des erreurs pour les entrées non numériques.</p>
+            <img src="../images/devinette.png" alt="Capture d'écran du jeu de la devinette dans le terminal" class="project-image">
+        </div>
+    </div>
+
+
+    <div class="project-section">
+        <h2>Jeu des Allumettes (Nim - Version simplifiée)</h2>
+        <div class="card">
+            <h3>Description et objectifs</h3>
+            <p>Ce jeu de stratégie simple a permis d'aborder des concepts de boucle de jeu plus complexes et la gestion de l'état du jeu. Deux joueurs retirent à tour de rôle 1, 2 ou 3 allumettes d'un tas initial, et le joueur qui prend la dernière allumette perd.</p>
+            <ul>
+                <li>Gestion de l'état du jeu (nombre d'allumettes restantes).</li>
+                <li>Alternance des joueurs (joueur humain contre joueur humain ou IA très simple).</li>
+                <li>Validation des coups pour s'assurer qu'un joueur ne retire pas plus de 3 allumettes.</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Concept</h3>
+            <p>Le défi ici était d'implémenter l'alternance des tours et la vérification des règles de retrait à chaque itération. L'état de la partie est mis à jour à chaque coup jusqu'à ce que le tas d'allumettes soit vide.</p>
+            <img src="../images/allumettes.png" alt="Capture d'écran du jeu des allumettes dans le terminal" class="project-image">
+        </div>
+    </div>
+    
+</div>
+
+<footer class="footer">
+    © 2025 — Portfolio développé par Mattéo Begue
+</footer>
+
+</body>
+</html>

@@ -148,3 +148,26 @@ a:hover {
 .card a.project-link:hover {
     text-decoration: underline;
 }
+
+.project-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #30363d;
+    display: block;
+    object-fit: cover;
+}
+
+.project-section {
+    margin-bottom: 60px; /* Espace entre chaque projet */
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #30363d;
+}
+
+.project-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
