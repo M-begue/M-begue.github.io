@@ -161,7 +161,7 @@ a:hover {
 }
 
 .project-section {
-    margin-bottom: 60px; /* Espace entre chaque projet */
+    margin-bottom: 60px;
     padding-bottom: 30px;
     border-bottom: 1px dashed #30363d;
 }
