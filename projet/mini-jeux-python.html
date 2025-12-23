@@ -85,12 +85,15 @@
         <h2>Console de Jeu Interactive</h2>
         <div class="card" style="background-color: #1a1a1a; padding: 10px; border-radius: 8px;">
             <p style="color: #00ff00; font-family: monospace; font-size: 0.8em; margin-bottom: 5px;">> Console Python chargée</p>
-            <script type="py" src="./A_SAE_R1.02.py" terminal></script>
+            <script type="py" src="./A_SAE_R1.02.py" terminal worker></script>
         </div>
     </div>
 </div>
 
 <py-config>
+    [experimental]
+    plugins = []
+    
     [[fetch]]
     files = [
         "A_SAE_R1.02.py", 
