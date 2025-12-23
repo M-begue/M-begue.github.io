@@ -17,6 +17,7 @@
     <p><a href="../index.html">← Retour au Portfolio</a></p>
     <h1>Collection de Mini-jeux Python</h1>
     <p>Morpion, Devinette et Allumettes</p>
+    <p>Bots contre bots (version navigateur)</p>
 </header>
 
 <div class="container">
@@ -62,32 +63,15 @@
     
 </div>
 
-<div class="container">
-    <div class="project-section">
-        <h2>Console de Jeu Interactive</h2>
-        <div class="card" style="background-color: #1a1a1a; padding: 15px; border-radius: 8px; border: 2px solid #333;">
-            <p style="color: #00ff00; font-family: monospace; font-size: 0.8em; margin-bottom: 10px;">> Chargement de l'environnement Python...</p>
-            
-            <script type="py" src="./A_SAE_R1.02.py" terminal worker></script>
-        </div>
-        <p style="font-size: 0.8em; margin-top: 10px; color: #666;">
-            Note : Si une fenêtre s'ouvre en haut de votre navigateur, saisissez votre texte dedans et appuyez sur Entrée.
-        </p>
-    </div>
+<div>
+    <button py-click="demo_morpion()">▶ Morpion</button>
+    <button py-click="demo_allumettes()">▶ Allumettes</button>
+    <button py-click="demo_devinette()">▶ Devinette</button>
 </div>
 
-<py-config>
-    [[fetch]]
-    files = [
-        "A_SAE_R1.02.py", 
-        "B_Allumettes.py", 
-        "B_Morpion.py", 
-        "B_Jeu_Des_Devinettes.py",
-        "B_Scores_allumettes.py",
-        "B_Scores_jeuDesDevinettes.py",
-        "B_Scores_Morpion.py"
-    ]
-</py-config>
+<pre id="output" style="background:#111;color:#0f0;padding:10px;margin-top:15px;"></pre>
+
+<py-script src="demo.py"></py-script>
 
 <footer class="footer" style="margin-top: 50px; text-align: center; padding: 20px;">
     © 2025 — Portfolio développé par Mattéo Begue
