@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-jeux Python - Mattéo Begue</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 
 <body>
@@ -77,6 +79,29 @@
     </div>
     
 </div>
+
+<div class="container">
+    <div class="project-section">
+        <h2>Console de Jeu Interactive</h2>
+        <div class="card" style="background-color: #1a1a1a; padding: 10px; border-radius: 8px;">
+            <p style="color: #00ff00; font-family: monospace; font-size: 0.8em; margin-bottom: 5px;">> Console Python chargée</p>
+            <script type="py" src="./A_SAE_R1.02.py" terminal></script>
+        </div>
+    </div>
+</div>
+
+<py-config>
+    [[fetch]]
+    files = [
+        "A_SAE_R1.02.py", 
+        "B_Allumettes.py", 
+        "B_Morpion.py", 
+        "B_Jeu_Des_Devinettes.py",
+        "B_Scores_allumettes.py",
+        "B_Scores_jeuDesDevinettes.py",
+        "B_Scores_Morpion.py"
+    ]
+</py-config>
 
 <footer class="footer">
     © 2025 — Portfolio développé par Mattéo Begue
