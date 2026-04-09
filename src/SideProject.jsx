@@ -86,7 +86,6 @@ export default function SideProject() {
     return () => clearTimeout(t);
   }, []);
 
-  // Navigation Clavier
   useEffect(() => {
     const onKey = (e) => {
       if (showPreview) {
@@ -99,6 +98,7 @@ export default function SideProject() {
         if (e.key === "ArrowDown") setActive(i => Math.min(PROJECTS.length - 1, i + 1));
         if (e.key === "ArrowRight") { setFocus("right"); setActiveSub(0); }
         if (e.key === "Escape") navigate("/");
+        if (e.key === "ArrowLeft") navigate("/");
       } else {
         if (e.key === "ArrowUp") setActiveSub(i => Math.max(0, i - 1));
         if (e.key === "ArrowDown") setActiveSub(i => Math.min(PROJECTS[active].subItems.length - 1, i + 1));
