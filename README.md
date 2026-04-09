@@ -1,2 +1,3 @@
-you will need the assets from this folder:
-https://drive.google.com/drive/folders/1_dVxHVTJO_YtMAo9ia7wnja1XY0nImr5?usp=drive_link
+Ce site n'a pas était créé par moi, je l'ai juste adapté et rajouté une page (SideProject.jsx).
+
+Les crédits du site viennent de cette personne : github.com/blairxu13/
