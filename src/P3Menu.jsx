@@ -28,7 +28,7 @@ export default function P3Menu({ onNavigate }) {
 
   const handleAction = (item) => {
     if (item.isExternal) {
-      window.open(item.page, '_blank', 'noopener,noreferrer');
+      window.location.href = item.page;
     } else {
       onNavigate?.(item.page);
     }
