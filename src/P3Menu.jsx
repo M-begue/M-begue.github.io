@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const ITEMS = [
   { id: "about",   label: "À PROPOS DE MOI",      page: "about",   fontSize: 60, offsetX: -70,  offsetY: 0,  skew: -6,  skewY: 10  },
   { id: "resume",  label: "PROFIL",        page: "resume",  fontSize: 66, offsetX: 20, offsetY: 8,  skew: -11, skewY: -10 },
-  { id: "portfolio",  label: "LIEN PORTFOLIO",   page: "https://m-begue.github.io/index.html",  isExternal: true,fontSize: 68, offsetX: 8, offsetY: 6,  skew: 0, skewY: -4  },
+  { id: "portfolio",  label: "LIEN PORTFOLIO",   page: "https://m-begue.github.io/portfolio/",  isExternal: true,fontSize: 68, offsetX: 8, offsetY: 6,  skew: 0, skewY: -4  },
   { id: "socials", label: "CONTACT",       page: "socials", fontSize: 74, offsetX: 16, offsetY: 8,  skew: -3,  skewY: 5   },
   { id: "sideproj",label: "AUTRES PROJETS", page: "sideproj",fontSize: 56, offsetX: 10, offsetY: 6,  skew: -4,  skewY: 7   },
 ];
