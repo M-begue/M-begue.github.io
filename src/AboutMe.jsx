@@ -21,16 +21,16 @@ const REVEAL_CONTENT = [
   },
   {
     upper: [  
-      "J'ai toujours était intéressé par l'informatique depuis mon enfance.",
+      "J'ai toujours été intéressé par l'informatique depuis mon enfance.",
       "Ma deuxième passion est la musculation que ",
       "je pratique depuis plus de 3 ans.",
     ],
-    lower: "un esprit saint dans un corps saint",
+    lower: "un esprit sain dans un corps sain.",
     
   },
   {
     upper: [
-      "Le site à pour thème Persona 3, mais mon jeu préféré est Elden Ring.",
+      "Le site a pour thème Persona 3, mais mon jeu préféré est Elden Ring.",
       "J'aime aussi les animés, notamment Jojo's Bizarre Adventure.",
     ],
     lower: "c'est bizarre, n'est-ce pas ?",
@@ -218,7 +218,6 @@ export default function AboutMe() {
           opacity: 0;
           transform: translateX(24px) skewX(-8deg) scale(0.98);
           transition: opacity 0.35s ease, transform 0.35s ease;
-          mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         }
         .sc-main-portrait-shell.mounted {
           opacity: 0.96;
@@ -359,8 +358,8 @@ export default function AboutMe() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center;
-          transform: skewX(8deg) scale(1.02);
+          object-position: top right;
+          transform: skewX(8deg) scale(1.08);
           transform-origin: top right;
         }
 
