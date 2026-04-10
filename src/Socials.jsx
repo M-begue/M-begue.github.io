@@ -72,7 +72,7 @@ export default function Socials() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline />
+      <video src={bgVideo} autoPlay loop muted playsInline preload="auto"/>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;1,700&display=swap');
 

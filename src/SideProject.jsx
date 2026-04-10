@@ -114,7 +114,7 @@ export default function SideProject() {
 
   return (
     <div id="menu-screen" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#000' }}>
-      <video src={bgVideo} autoPlay loop muted playsInline 
+      <video src={bgVideo} autoPlay loop muted playsInline preload="auto"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} 
       />
 

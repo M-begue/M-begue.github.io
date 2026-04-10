@@ -99,7 +99,7 @@ export default function AboutMe() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline />
+      <video src={bgVideo} autoPlay loop muted playsInline preload="auto" />
       {revealed && <div key={`dim-${active}`} className="sc-dim" />}
       {revealed && (
         <div key={`panel-${active}`} className={`sc-reveal-panel${mounted ? " mounted" : ""}`}>
@@ -612,13 +612,18 @@ export default function AboutMe() {
         }
       `}</style>
 
-      <div className="sc-root" role="navigation">
+      <div className="sc-root" role="navigation" style={{ pointerEvents: 'auto'}}>
         {ITEMS.map((item, i) => (
           <div
             key={item.id}
             className={`sc-bar-outer${active === i ? " active" : ""}${mounted ? " mounted" : ""}`}
+            style={{
+              zIndex: active === i ? 10 : 1,
+              position: 'relative'
+            }}
             onClick={() => {
               setActive(i);
+              setRevealed(true);
             }}
             onMouseEnter={() => {
               setActive(i);
