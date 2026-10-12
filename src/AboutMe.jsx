@@ -16,7 +16,7 @@ const MAIN_IMAGES = [mainm, mainm2, mainf];
 
 const REVEAL_CONTENT = [
   {
-    upper: ["BEGUE Mattéo", "Étude : BUT Informatique à Limoges (2ème année)"],
+    upper: ["BEGUE Mattéo", "Étude : BUT Informatique à Limoges (3ème année)"],
     lower: "Développeur junior",
   },
   {
@@ -30,10 +30,9 @@ const REVEAL_CONTENT = [
   },
   {
     upper: [
-      "Le site a pour thème Persona 3, mais mon jeu préféré est Elden Ring.",
-      "J'aime aussi les animés, notamment Jojo's Bizarre Adventure.",
+      "Cherche un stage de 16 semaines.",
     ],
-    lower: "c'est bizarre, n'est-ce pas ?",
+    lower: "à partir du 22 février 2027",
   },
 ];
 
@@ -61,7 +60,7 @@ const ITEMS = [
     ],
   },
   {
-    id: "tiktok", label: "BIZARRE FACT", handle: "@yourhandle", href: "https://tiktok.com/@yourhandle", icon: "🎵", barIcon: icon3, bars: 7, newBars: [0, 3, 5, 6], counts: ["5.1M", "3.7M", "2.2M", "1.4M", "831K", "490K", "217K"],
+    id: "tiktok", label: "MON OBJECTIF", handle: "@yourhandle", href: "https://tiktok.com/@yourhandle", icon: "🎵", barIcon: icon3, bars: 7, newBars: [0, 3, 5, 6], counts: ["5.1M", "3.7M", "2.2M", "1.4M", "831K", "490K", "217K"],
     links: ["tiktok.com/@yourhandle/video/7318492016374859054", "tiktok.com/@yourhandle/video/7305837261940183342", "tiktok.com/@yourhandle/video/7291046385720348974", "tiktok.com/@yourhandle/video/7278392047163820334", "tiktok.com/@yourhandle/video/7264819203847165742", "tiktok.com/@yourhandle/video/7251047382916430126", "tiktok.com/@yourhandle/video/7237294018463851822"],
     stats: [
       { tag: "FOL", value: "8.9K", color: "#00f2ea" },

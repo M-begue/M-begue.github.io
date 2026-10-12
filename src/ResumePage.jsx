@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 const ITEMS = [
   { id: "i", badge: "I", title: "ÉTUDE", subtitle: "Université / Parcours", rank: 2 },
-  { id: "ii", badge: "II", title: "COMPTÉTENCES", subtitle: "Frontend / Backend / BDD", rank: 2 },
+  { id: "ii", badge: "II", title: "COMPÉTENCES", subtitle: "Frontend / Backend / BDD", rank: 3 },
   { id: "iii", badge: "III", title: "PROJETS", subtitle: "SAE / Projets Personnels", rank: 3 },
-  { id: "iv", badge: "IV", title: "EXPERIENCE", subtitle: "Stages / Alternances", rank: 1 },
+  { id: "iv", badge: "IV", title: "EXPERIENCE", subtitle: "Stages / Alternances", rank: 2 },
 ];
 
 const EDUCATION_ROWS = [
   { index: "01", title: "Études Générales", status: "Complété" },
   { index: "02", title: "BUT Informatique", status: "En cours" },
-  { index: "03", title: "Entré dans la vie active", status: "En progression" },
+  { index: "03", title: "Entrée dans la vie active", status: "En progression" },
 ];
 
 export default function ResumePage({ src }) {
