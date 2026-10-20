@@ -5,7 +5,7 @@ const ITEMS = [
   { id: "i", badge: "I", title: "ÉTUDE", subtitle: "Université / Parcours", rank: 2 },
   { id: "ii", badge: "II", title: "COMPÉTENCES", subtitle: "Frontend / Backend / BDD", rank: 3 },
   { id: "iii", badge: "III", title: "PROJETS", subtitle: "SAE / Projets Personnels", rank: 3 },
-  { id: "iv", badge: "IV", title: "EXPERIENCE", subtitle: "Stages / Alternances", rank: 2 },
+  { id: "iv", badge: "IV", title: "EXPÉRIENCE", subtitle: "Stages / Alternances", rank: 2 },
 ];
 
 const EDUCATION_ROWS = [
