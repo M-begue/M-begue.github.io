@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: #0047FF;
+}
+
+.loading-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: 72px;
+  letter-spacing: 4px;
+  color: #fff;
+  user-select: none;
+}
+
+.loading-bar {
+  width: min(40vw, 420px);
+  height: 8px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: #c4001a;
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}

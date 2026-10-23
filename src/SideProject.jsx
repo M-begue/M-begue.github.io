@@ -152,7 +152,7 @@ const PROJECTS = [
   }
 ];
 
-export default function SideProject() {
+export default function SideProject({ src }) {
   const [active, setActive] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [activeSub, setActiveSub] = useState(0);
@@ -193,7 +193,7 @@ export default function SideProject() {
 
   return (
     <div id="menu-screen" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#000' }}>
-      <video src={bgVideo} autoPlay loop muted playsInline preload="auto"
+      <video src={src ?? bgVideo} autoPlay loop muted playsInline preload="auto"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} 
       />
 

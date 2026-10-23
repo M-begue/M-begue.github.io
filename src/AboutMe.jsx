@@ -69,7 +69,7 @@ const ITEMS = [
   },
 ];
 
-export default function AboutMe() {
+export default function AboutMe({ src }) {
   const [active, setActive]   = useState(0);
   const [mounted, setMounted] = useState(false);
   const [revealed, setRevealed] = useState(false);
@@ -98,7 +98,7 @@ export default function AboutMe() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline preload="auto" />
+      <video src={src ?? bgVideo} autoPlay loop muted playsInline preload="auto" />
       {revealed && <div key={`dim-${active}`} className="sc-dim" />}
       {revealed && (
         <div key={`panel-${active}`} className={`sc-reveal-panel${mounted ? " mounted" : ""}`}>
@@ -588,25 +588,36 @@ export default function AboutMe() {
 
         /* footer hints */
         .sc-footer {
-          position: fixed;
-          bottom: 20px; right: 28px;
+          position: absolute;
+          bottom: 28px; right: 32px;
+          z-index: 50;
           display: flex; flex-direction: column;
-          align-items: flex-end; gap: 5px;
-          font-family: 'Bebas Neue', sans-serif;
-          z-index: 14;
+          align-items: flex-end; gap: 9px;
+          padding: 11px 16px;
+          font-family: 'Anton', sans-serif;
+          background: rgba(6, 10, 48, 0.82);
+          border-left: 4px solid #c4001a;
+          box-shadow: 6px 6px 0 rgba(196, 0, 26, 0.85);
           opacity: 0;
-          transition: opacity 0.4s ease 0.6s;
+          transition: opacity 0.5s ease 0.9s;
         }
         .sc-footer.mounted { opacity: 1; }
         .sc-footer-row {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 13px; letter-spacing: 2px;
-          color: rgba(255,255,255,0.22);
+          display: flex; align-items: center; gap: 10px;
+          font-size: 17px; letter-spacing: 2px;
+          color: #ffffff;
+          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
         }
         .sc-footer-key {
-          border: 1px solid rgba(255,255,255,0.15);
-          border-radius: 3px;
-          padding: 1px 6px; font-size: 11px;
+          min-width: 38px;
+          text-align: center;
+          padding: 3px 9px;
+          font-size: 16px;
+          line-height: 1.1;
+          color: #0a0a14;
+          background: #ffffff;
+          border-radius: 4px;
+          box-shadow: 0 3px 0 #c4001a;
         }
       `}</style>
 
@@ -646,9 +657,9 @@ export default function AboutMe() {
       </div>
 
       <div className={`sc-footer${mounted ? " mounted" : ""}`}>
-        <div className="sc-footer-row"><span className="sc-footer-key">↑↓</span><span>SELECT</span></div>
-        <div className="sc-footer-row"><span className="sc-footer-key">↵</span><span>REVEAL</span></div>
-        <div className="sc-footer-row"><span className="sc-footer-key">ESC</span><span>BACK</span></div>
+        <div className="sc-footer-row"><span className="sc-footer-key">↑↓</span><span>SELECTIONNER</span></div>
+        <div className="sc-footer-row"><span className="sc-footer-key">↵</span><span>OUVRIR</span></div>
+        <div className="sc-footer-row"><span className="sc-footer-key">ESC</span><span>RETOUR</span></div>
       </div>
     </div>
   );

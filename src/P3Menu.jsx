@@ -178,26 +178,38 @@ export default function P3Menu({ onNavigate }) {
         }
         .p3-row.active .p3-label-bright { opacity: 1; }
 
+        /* ── Aides de navigation ── */
         .p3-hint {
           position: absolute;
-          bottom: 24px; right: 28px;
+          bottom: 28px; right: 32px;
           z-index: 20;
           display: flex; flex-direction: column;
-          align-items: flex-end; gap: 5px;
+          align-items: flex-end; gap: 9px;
+          padding: 11px 16px;
           font-family: 'Anton', sans-serif;
+          background: rgba(6, 10, 48, 0.82);
+          border-left: 4px solid #c4001a;
+          box-shadow: 6px 6px 0 rgba(196, 0, 26, 0.85);
           opacity: 0;
           transition: opacity 0.5s ease 0.9s;
         }
         .p3-hint.mounted { opacity: 1; }
         .p3-hint-row {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 13px; letter-spacing: 2px;
-          color: rgba(255,255,255,0.28);
+          display: flex; align-items: center; gap: 10px;
+          font-size: 17px; letter-spacing: 2px;
+          color: #ffffff;
+          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
         }
         .p3-hint-key {
-          border: 1px solid rgba(255,255,255,0.2);
-          border-radius: 3px;
-          padding: 1px 6px; font-size: 11px;
+          min-width: 38px;
+          text-align: center;
+          padding: 3px 9px;
+          font-size: 16px;
+          line-height: 1.1;
+          color: #0a0a14;
+          background: #ffffff;
+          border-radius: 4px;
+          box-shadow: 0 3px 0 #c4001a;
         }
 
         .p3-name-tag {
@@ -306,6 +318,7 @@ export default function P3Menu({ onNavigate }) {
         <div className={`p3-hint ${mounted ? "mounted" : ""}`}>
           <div className="p3-hint-row"><span className="p3-hint-key">↑↓</span><span>NAVIGUER</span></div>
           <div className="p3-hint-row"><span className="p3-hint-key">↵</span><span>CONFIRMER</span></div>
+          <div className="p3-hint-row"><span className="p3-hint-key">ESC</span><span>RETOUR</span></div>
         </div>
       </div>
     </>
