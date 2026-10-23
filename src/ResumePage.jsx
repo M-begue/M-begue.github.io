@@ -8,10 +8,97 @@ const ITEMS = [
   { id: "iv", badge: "IV", title: "EXPÉRIENCE", subtitle: "Stages / Alternances", rank: 2 },
 ];
 
-const EDUCATION_ROWS = [
-  { index: "01", title: "Études Générales", status: "Complété" },
-  { index: "02", title: "BUT Informatique", status: "En cours" },
-  { index: "03", title: "Entrée dans la vie active", status: "En progression" },
+// Contenu des panneaux de détail (un par entrée de ITEMS, même ordre).
+// Tout provient du CV PDF.
+const PANELS = [
+  // I — ÉTUDE
+  {
+    index: "01",
+    title: "ÉTUDE TÂCHES",
+    progress: "1/3",
+    compact: false,
+    rows: [
+      { index: "01", title: "Études Générales", status: "Complété" },
+      { index: "02", title: "BUT Informatique", status: "En cours" },
+      { index: "03", title: "Entrée dans la vie active", status: "En progression" },
+    ],
+    bottomTitle: "DÉTAILS",
+    bullets: [
+      "- Baccalauréat général obtenu.",
+      "- Après le BUT Informatique, soit je cherche un travail soit je poursuis mes études en école d'ingénieur.",
+    ],
+  },
+
+  // II — COMPÉTENCES
+  {
+    index: "02",
+    title: "COMPÉTENCES",
+    progress: `${8}`,
+    compact: true,
+    rows: [
+      { index: "01", title: "Langages de programmation" },
+      { index: "02", title: "Développement Web" },
+      { index: "03", title: "Gestion de projet" },
+      { index: "04", title: "DevOps / IaOps" },
+      { index: "05", title: "Cryptographie" },
+      { index: "06", title: "Réseaux" },
+      { index: "07", title: "Linux" },
+      { index: "08", title: "Git" },
+    ],
+    bottomTitle: "DÉTAILS",
+    bullets: [
+      "- Langages : Python, C++, JavaScript, SQL, NoSQL.",
+      "- Web : HTML, CSS, PHP, React, Vite, Express, Node.js.",
+      "- Gestion de projet : Gantt, Kanban, MoSCoW, Pert, SWOT.",
+      "- Soft skills : esprit d'équipe, adaptabilité, curiosité, soif d'apprendre, communication, rationnel, gestion du stress.",
+    ],
+  },
+
+  // III — PROJETS
+  {
+    index: "03",
+    title: "PROJETS",
+    progress: `${5}`,
+    compact: true,
+    rows: [
+      { index: "01", title: "Latice", status: "2 mois · 4 pers." },
+      { index: "02", title: "Mini-jeux Python", status: "2 mois · 2 pers." },
+      { index: "03", title: "Kathara", status: "2 mois · 2 pers." },
+      { index: "04", title: "Gestionnaire formulaire", status: "3 mois · 5 pers." },
+      { index: "05", title: "NeuralAIM", status: "5 mois · 6 pers." },
+    ],
+    bottomTitle: "DÉTAILS",
+    bullets: [
+      "- Latice : développement d'un jeu de société en équipe, codé en Java/JavaFX, gestion de git (merging, push), front-end et back-end.",
+      "- Mini-jeux Python : développement de mini jeux divers, collaboration avec un camarade, programmation et conception fonctionnelle, rédaction d'un compte rendu.",
+      "- Kathara : conception et déploiement d'une infrastructure réseau, configuration en IPv4 d'un service DNS, DHCP et SSH, tests de connectivité, vérification de communication entre sous-réseaux.",
+      "- Gestionnaire formulaire : outil de formulaire en ligne pour faciliter l'administratif de l'IUT, chef de projet (méthodes Agiles), développement back-end (node.js), rédaction du cahier des charges et du compte rendu.",
+      "- NeuralAIM : IA avec PyTorch et OpenCV pour détecter l'impact d'une fléchette sur une cible, conception et entraînement d'un modèle CNN (PyTorch), traitement et analyse d'images (OpenCV), préparation des données et évaluation des performances du modèle.",
+    ],
+  },
+
+  // IV — EXPÉRIENCE
+  {
+    index: "04",
+    title: "STAGE AIM23",
+    progress: "10 SEM.",
+    compact: false,
+    rows: [
+      { index: "01", title: "Analyse des besoins" },
+      { index: "02", title: "Gantt & cahier des charges" },
+      { index: "03", title: "Solution pérenne" },
+      { index: "04", title: "Pistes d'amélioration" },
+    ],
+    bottomTitle: "DÉTAILS",
+    bullets: [
+      "- Stage de 10 semaines chez AIM23.",
+      "- Analyse, développement et mise en service d'un logiciel de gestion des parcs matériels.",
+      "- Analyse des besoins de l'entreprise.",
+      "- Réalisation d'un diagramme de Gantt et d'un cahier des charges.",
+      "- Mise en place d'une solution pérenne.",
+      "- Pistes d'améliorations sur le logiciel de l'entreprise.",
+    ],
+  },
 ];
 
 export default function ResumePage({ src }) {
@@ -35,6 +122,8 @@ export default function ResumePage({ src }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [navigate]);
+
+  const panel = PANELS[active];
 
   return (
     <div id="menu-screen">
@@ -247,6 +336,7 @@ export default function ResumePage({ src }) {
           right: 4.5vw;
           width: min(39vw, 620px);
           min-height: 74vh;
+          max-height: 84vh;
           z-index: 12;
           padding: 22px 24px 24px 24px;
           background: linear-gradient(180deg, rgba(15, 28, 105, 0.96) 0%, rgba(8, 16, 68, 0.97) 100%);
@@ -254,7 +344,13 @@ export default function ResumePage({ src }) {
           box-shadow:
             inset 0 0 0 1px rgba(133, 244, 255, 0.16),
             16px 16px 0 rgba(0, 6, 30, 0.55);
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: auto;
+          pointer-events: all;
+          scrollbar-width: none;
+        }
+        .resume-detail-panel::-webkit-scrollbar {
+          display: none;
         }
         .resume-detail-panel::before {
           content: "";
@@ -367,6 +463,47 @@ export default function ResumePage({ src }) {
           color: #edfaff;
         }
 
+        /* Variante dense pour les panneaux avec beaucoup de contenu */
+        .resume-detail-panel.compact {
+          padding: 18px 22px 20px 22px;
+        }
+        .resume-detail-panel.compact .resume-detail-top {
+          min-height: 76px;
+        }
+        .resume-detail-panel.compact .resume-detail-list {
+          gap: 6px;
+          margin-top: 14px;
+        }
+        .resume-detail-panel.compact .resume-detail-row {
+          min-height: 42px;
+        }
+        .resume-detail-panel.compact .resume-detail-row-index {
+          font-size: 22px;
+        }
+        .resume-detail-panel.compact .resume-detail-row-title {
+          font-size: 23px;
+        }
+        .resume-detail-panel.compact .resume-detail-status {
+          font-size: 18px;
+          padding: 5px 10px;
+        }
+        .resume-detail-panel.compact .resume-detail-bottom {
+          margin-top: 16px;
+          padding: 14px 16px;
+        }
+        .resume-detail-panel.compact .resume-detail-bottom-title {
+          font-size: 26px;
+          margin-bottom: 10px;
+        }
+        .resume-detail-panel.compact .resume-detail-bullets {
+          gap: 8px;
+        }
+        .resume-detail-panel.compact .resume-detail-bullet {
+          font-size: 16px;
+          line-height: 1.25;
+          letter-spacing: 0.3px;
+        }
+
       `}</style>
 
       <div className="resume-overlay">
@@ -403,29 +540,34 @@ export default function ResumePage({ src }) {
           ))}
         </div>
 
-        {active === 0 && (
-          <div className="resume-detail-panel">
+        {panel && (
+          <div className={`resume-detail-panel${panel.compact ? " compact" : ""}`} key={active}>
             <div className="resume-detail-top">
-              <div className="resume-detail-top-index">01</div>
-              <div className="resume-detail-top-title">ÉTUDE TÂCHES</div>
-              <div className="resume-detail-top-progress">1/3</div>
+              <div className="resume-detail-top-index">{panel.index}</div>
+              <div className="resume-detail-top-title">{panel.title}</div>
+              <div className="resume-detail-top-progress">{panel.progress}</div>
             </div>
 
             <div className="resume-detail-list">
-              {EDUCATION_ROWS.map((row) => (
+              {panel.rows.map((row) => (
                 <div className="resume-detail-row" key={row.index}>
                   <div className="resume-detail-row-index">{row.index}</div>
                   <div className="resume-detail-row-title">{row.title}</div>
-                  <div className="resume-detail-status">{row.status}</div>
+                  {row.status ? (
+                    <div className="resume-detail-status">{row.status}</div>
+                  ) : (
+                    <div />
+                  )}
                 </div>
               ))}
             </div>
 
             <div className="resume-detail-bottom">
-              <div className="resume-detail-bottom-title">DÉTAILS</div>
+              <div className="resume-detail-bottom-title">{panel.bottomTitle}</div>
               <div className="resume-detail-bullets">
-                <div className="resume-detail-bullet">- Baccalauréat général obtenu.</div>
-                <div className="resume-detail-bullet">- Après le BUT Informatique, soit je cherche un travail soit je poursuis mes études en école d'ingénieur.</div>
+                {panel.bullets.map((b, i) => (
+                  <div className="resume-detail-bullet" key={i}>{b}</div>
+                ))}
               </div>
             </div>
           </div>

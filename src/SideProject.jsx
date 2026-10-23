@@ -3,18 +3,28 @@ import { useNavigate } from "react-router-dom";
 
 import char1 from "./assets/char1.png"; 
 import char2 from "./assets/char2.png";
+import char3 from "./assets/char3.png";
+import char4 from "./assets/char4.png";
 import bgVideo from "./assets/main3.mp4";
 import icon1 from "./assets/icon1.png";
 import icon2 from "./assets/icon2.png";
+import icon3 from "./assets/icon3.png";
 import imgLatice from "./assets/latice_1.png";
 import imgMorpion from "./assets/morpion.png";
 import imgAllumettes from "./assets/allumettes.png";
 import imgDevinette from "./assets/devinette.png";
+import imgCreationFormulaire from "./assets/creationFormulaire.png";
+import imgGestionFormulaire from "./assets/gestionFormulaire.png";
+import imgLogin from "./assets/login.png";
+import imgAdminUtilisateur from "./assets/adminUtilisateur.png";
+import imRgpd from "./assets/rgpd.png";
+import imgOuapi from "./assets/imgOuapi.png";
 
 const ROLES = [
   { text: "LEADER", color: "#e8c100", bg: "rgba(232,193,0,0.12)", border: "rgba(232,193,0,0.5)" },
   { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
-  { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
+  { text: "PARTY",  color: "#ff3cf2", bg: "rgba(74,143,255,0.12)", border: "rgba(228, 74, 255, 0.5)" },
+  { text: "PARTY",  color: "#ff0026", bg: "rgba(74,143,255,0.12)", border: "rgba(250, 2, 23, 0.5)" },
 ];
 
 const PROJECTS = [
@@ -68,6 +78,75 @@ const PROJECTS = [
         count: "V1.2", 
         isLarge: false,
         details: "Manipulation des nombres aléatoires et des entrées utilisateurs."
+      }
+    ]
+  },
+  {
+    id: "questionnaire",
+    label: "Questionnaire",
+    desc: "Projet de groupe — Node.js",
+    icon: icon3,
+    char: char3,
+    color: "#ff3cf2",
+    skills: ["JavaScript", "Chef de projet", "RGPD", "BDD"],
+    subItems: [
+      { 
+        name: "Gérer les utilisateurs", 
+        img: imgAdminUtilisateur, 
+        info: "Admin", 
+        count: "PVP", 
+        isLarge: true,
+        details: "Page pour gérer les utilisateurs"
+      },
+      { 
+        name: "Créer un questionnaire", 
+        img: imgCreationFormulaire, 
+        info: "UTILISATEUR", 
+        count: "NIM", 
+        isLarge: false,
+        details: "Page pour créer un questionnaire"
+      },
+      { 
+        name: "Gérer les questionnaires", 
+        img: imgGestionFormulaire, 
+        info: "Gestion", 
+        count: "V1.2", 
+        isLarge: false,
+        details: "Page pour gérer ses questionnaires, les modifiers, les supprimer, les importer, etc..."
+      },
+      { 
+        name: "Protection des données", 
+        img: imRgpd, 
+        info: "RGPD", 
+        count: "V1.2", 
+        isLarge: false,
+        details: "Bout de page du RGPD pour la protection des données"
+      },
+      { 
+        name: "Connexion", 
+        img: imgLogin, 
+        info: "Login", 
+        count: "V1.2", 
+        isLarge: false,
+        details: "Page pour se connecter au site, avec un système d'A2F."
+      }
+    ]
+  },
+  {
+    id: "ouapi",
+    label: "OUAPI",
+    desc: "Stage — Modernisation de code",
+    icon: icon1,
+    char: char4,
+    color: "#ff0026",
+    skills: ["PHP", "BDD", "Qualité de code", "Cahier des charges"],
+    subItems: [
+      { 
+        name: "OUAPI", 
+        img: imgOuapi, 
+        info: "", 
+        count: "04 PERS", 
+        details: "Page d'acceuil du gestionnaire de parc informatique multisite." 
       }
     ]
   }

@@ -2,18 +2,27 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import char1 from "./assets/char1.png";
 import char2 from "./assets/char2.png";
+import char3 from "./assets/char3.png";
+import char4 from "./assets/char4.png";
+import char5 from "./assets/char5.png";
 import bgVideo from "./assets/main3.mp4";
 import newsign from "./assets/newsign.png";
 import icon1 from "./assets/icon1.png";
 import icon2 from "./assets/icon2.png";
 
-const CHARS = [char1, char2];
+// Seulement 2 portraits : on les réutilise en alternance pour les barres suivantes.
+const CHARS = [char1, char2, char3, char4, char5];
 
 const ROLES = [
   { text: "LEADER", color: "#e8c100", bg: "rgba(232,193,0,0.12)", border: "rgba(232,193,0,0.5)" },
   { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
   { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
+  { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
+  { text: "PARTY",  color: "#4a8fff", bg: "rgba(74,143,255,0.12)", border: "rgba(74,143,255,0.5)" },
 ];
+
+// Ajoute https:// si besoin, mais laisse passer tel: et mailto:
+const toUrl = (link) => (/^(https?:|tel:|mailto:)/.test(link) ? link : `https://${link}`);
 
 const ITEMS = [
   {
@@ -31,6 +40,24 @@ const ITEMS = [
       { tag: "FOL", value: "119", color: "#e1306c" },
       { tag: "PST", value: "1",  color: "#f77737" },
     ],
+  },
+  {
+    id: "github", label: "GITHUB", href: "https://github.com/M-begue/", icon: "", barIcon: null, bars: 1, newBars: [],
+    links: ["https://github.com/M-begue/"],
+    infoTexts: ["github.com/M-begue"],
+    stats: [],
+  },
+  {
+    id: "phone", label: "TÉLÉPHONE", href: "tel:+33692624877", icon: "", barIcon: null, bars: 1, newBars: [],
+    links: ["tel:+262692624877"],
+    infoTexts: ["06 92 62 48 77"],
+    stats: [],
+  },
+  {
+    id: "mail", label: "MAIL", href: "mailto:matteo.begue@etu.unilim.fr", icon: "", barIcon: null, bars: 1, newBars: [],
+    links: ["mailto:matteo.begue@etu.unilim.fr"],
+    infoTexts: ["matteo.begue@etu.unilim.fr"],
+    stats: [],
   },
 ];
 
@@ -52,23 +79,27 @@ export default function Socials() {
         if (e.key === "ArrowUp")    setActive(i => Math.max(0, i - 1));
         if (e.key === "ArrowDown")  setActive(i => Math.min(ITEMS.length - 1, i + 1));
         if (e.key === "ArrowRight") { setFocus("right"); setActiveInfoBar(0); }
-        if (e.key === "Enter") {     
-          const link = ITEMS[active].links[activeInfoBar];
-          const url = link.startsWith("http") ? link : `https://${link}`;
-          window.open(url, "_blank");
+        if (e.key === "Enter") {
+          const links = ITEMS[active].links;
+          const link = links[activeInfoBar] ?? links[0];
+          window.open(toUrl(link), "_blank");
         }
       } else {
         const barCount = ITEMS[active].bars;
         if (e.key === "ArrowUp")   setActiveInfoBar(i => Math.max(0, i - 1));
         if (e.key === "ArrowDown") setActiveInfoBar(i => Math.min(barCount - 1, i + 1));
         if (e.key === "ArrowLeft") setFocus("left");
-        if (e.key === "Enter")     window.open("https://" + ITEMS[active].links[activeInfoBar], "_blank");
+        if (e.key === "Enter") {
+          const links = ITEMS[active].links;
+          const link = links[activeInfoBar] ?? links[0];
+          window.open(toUrl(link), "_blank");
+        }
       }
       if ((e.key === "ArrowLeft" && focus === "left") || e.key === "Escape" || e.key === "Backspace") navigate(-1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [active, navigate, focus]);
+  }, [active, activeInfoBar, navigate, focus]);
 
   return (
     <div id="menu-screen">
@@ -116,6 +147,8 @@ export default function Socials() {
         .sc-bar-outer:nth-child(1) { transition-delay: 0ms; }
         .sc-bar-outer:nth-child(2) { transition-delay: 80ms; }
         .sc-bar-outer:nth-child(3) { transition-delay: 160ms; }
+        .sc-bar-outer:nth-child(4) { transition-delay: 240ms; }
+        .sc-bar-outer:nth-child(5) { transition-delay: 320ms; }
 
         /* red underlay — peeks out below the bar when active */
         .sc-bar-red {
@@ -451,6 +484,7 @@ export default function Socials() {
           color: #111;
           padding: 0 14px;
           user-select: none;
+          white-space: nowrap;
         }
         .sc-info-bar-box {
           height: 70%;
@@ -518,14 +552,14 @@ export default function Socials() {
             key={item.id}
             className={`sc-bar-outer${active === i ? " active" : ""}${mounted ? " mounted" : ""}`}
             onClick={() => {
-              if (active === i) window.open(item.href, "_blank");
+              if (active === i) window.open(toUrl(item.href), "_blank");
               else setActive(i);
             }}
             onMouseEnter={() => setActive(i)}
           >
             <div className="sc-bar-red" />
             <div className="sc-bar">
-              <img className="sc-char" src={CHARS[i]} alt="" />
+              <img className="sc-char" src={CHARS[i % CHARS.length]} alt="" />
               <div className="sc-bar-fill" />
               <div className="sc-bar-shade" />
               <div className="sc-bar-content">
@@ -572,10 +606,8 @@ export default function Socials() {
           key={`bar-${active}-${i}`}
           style={{ top: `${155 + i * 52}px`, animationDelay: `${i * 50}ms` }}
           onClick={() => {
-            setActiveInfoBar(i)
-            const link = ITEMS[active].links[i];
-            const url = link.startsWith("http") ? link : `https://${link}`;
-            window.open(url, "_blank");
+            setActiveInfoBar(i);
+            window.open(toUrl(ITEMS[active].links[i]), "_blank");
           }}
           onMouseEnter={() => setActiveInfoBar(i)}
         >
@@ -583,10 +615,18 @@ export default function Socials() {
             <img className="sc-info-bar-new" src={newsign} alt="" />
           )}
           <div className="sc-info-bar">
-            <img className="sc-info-bar-icon" src={ITEMS[active].barIcon} alt="" />
-            <span className="sc-info-bar-text">{ITEMS[active].links[i].slice(0, 10)}...</span>
-            <span className="sc-info-bar-box">VIEWS</span>
-            <span className="sc-info-bar-count">{ITEMS[active].counts[i]}</span>
+            {ITEMS[active].barIcon && (
+              <img className="sc-info-bar-icon" src={ITEMS[active].barIcon} alt="" />
+            )}
+            <span className="sc-info-bar-text">
+              {ITEMS[active].infoTexts?.[i] ?? `${ITEMS[active].links[i].slice(0, 10)}...`}
+            </span>
+            {ITEMS[active].counts?.[i] && (
+              <>
+                <span className="sc-info-bar-box">VIEWS</span>
+                <span className="sc-info-bar-count">{ITEMS[active].counts[i]}</span>
+              </>
+            )}
           </div>
         </div>
       ))}
